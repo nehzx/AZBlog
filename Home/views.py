@@ -4,4 +4,7 @@ from django.shortcuts import render, redirect, HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("这是首页")
+
+    print(request.environ.get("HTTP_USER_AGENT"))
+
+    return render(request, "home/index.html")

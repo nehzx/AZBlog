@@ -15,8 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 
-# from django.contrib import admin
-
+from Home import views
 urlpatterns = [
     url(r'^help/', include("Help.urls")),
     url(r'^home/', include("Home.urls")),
