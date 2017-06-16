@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, HttpResponse
 
+from django.contrib.sessions.backends.db import SessionStore
+
 
 # Create your views here.
 
 def index(request):
-
-    print(request.environ.get("HTTP_USER_AGENT"))
-
+    request.session["username"] = "root"
+    request.session["is_login"] = True
     return render(request, "home/index.html")
