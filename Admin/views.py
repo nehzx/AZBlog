@@ -5,3 +5,7 @@ from django.shortcuts import render, redirect, HttpResponse
 
 def admin(request):
     pass
+
+
+def login(request):
+    return render(request, "admin/login.html")

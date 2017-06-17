@@ -17,4 +17,5 @@ from django.conf.urls import url
 from Admin import views
 urlpatterns = [
     url(r'^admin/', views.admin),
+    url(r'^login/', views.login),
 ]
