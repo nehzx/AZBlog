@@ -6,14 +6,13 @@ Created by AZBlog on 2017/6/18 下午7:34
 Copyright 2017 azhen All rights reserved.
 """
 
-
 from django.core.exceptions import ValidationError
 from django import forms as django_forms
 from django.forms import fields as django_fields
 from django.forms import widgets as django_widgets
 
 from Admin import models
-from Admin.forms import BaseForm
+from Admin.forms.BaseForm import BaseForm
 
 
 class LoginForm(BaseForm, django_forms.Form):
@@ -37,6 +36,6 @@ class LoginForm(BaseForm, django_forms.Form):
         error_messages={'required': '验证码不能为空.'}
     )
 
-    def clean_check_code(self):
-        if self.request.session.get('CheckCode').upper() != self.request.POST.get('check_code').upper():
-            raise ValidationError(message='验证码错误', code='invalid')
+    # def clean_check_code(self):
+    #     if self.request.session.get('CheckCode').upper() != self.request.POST.get('check_code').upper():
+    #         raise ValidationError(message='验证码错误', code='invalid')
