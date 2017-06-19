@@ -18,4 +18,5 @@ from Admin import views
 urlpatterns = [
     url(r'^admin.html$', views.admin),
     url(r'^login.html$', views.login),
+    url(r'^logout$', views.logout),
 ]

@@ -3,76 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
-        <!--=================== css ====================-->
-        <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/static/bootstrap/css/nifty.min.css" rel="stylesheet">
-        <link href="/static/bootstrap/themify-icons/themify-icons.min.css" rel="stylesheet">
-        <link href="/static/bootstrap/plugins/magic-check/css/magic-check.min.css" rel="stylesheet">
-        <link href="/static/bootstrap/css/pace.min.css" rel="stylesheet">
+    <!--=================== css ====================-->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/nifty.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/themify-icons/themify-icons.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/plugins/magic-check/css/magic-check.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/pace.min.css" rel="stylesheet">
 
 
 </head>
 <body>
 
 
-    <div id="container" class="cls-container">
+<div id="container" class="cls-container">
 
-		<!-- LOGIN FORM -->
-		<!--===================================================-->
-		<div class="cls-content">
-		    <div class="cls-content-sm panel">
-		        <div class="panel-body">
-		            <div class="mar-ver pad-btm">
-		                <h3 class="h4 mar-no">账号登录</h3>
-		                <p class="text-muted">欢迎登录阿振的后台管理系统</p>
-		            </div>
-		            <form id="fm">
-                        {% csrf_token %}
-		                <div class="form-group">
-		                    <input type="text" class="form-control" placeholder="账号" autofocus name="username">
-		                </div>
-		                <div class="form-group">
-		                    <input type="password" class="form-control" placeholder="密码" name="password">
-		                </div>
-		                <div class="checkbox pad-btm text-left">
-		                    <input id="demo-form-checkbox" class="magic-checkbox" type="checkbox" checked="checked" name="is_remember">
-		                    <label for="demo-form-checkbox">记住账号密码</label>
-		                </div>
-		                <button class="btn btn-primary btn-lg btn-block" type="button">登录</button>
-		            </form>
-		        </div>
-		    </div>
-		</div>
+    <!-- LOGIN FORM -->
+    <!--===================================================-->
+    <div class="cls-content">
+        <div class="cls-content-sm panel">
+            <div class="panel-body">
+                <div class="mar-ver pad-btm">
+                    <h3 class="h4 mar-no">账号登录</h3>
+                    <p class="text-muted">欢迎登录阿振的后台管理系统</p>
+                </div>
+                <form id="fm">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="账号" autofocus name="username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="密码" name="password">
+                    </div>
+                    <div class="checkbox pad-btm text-left">
+                        <input id="demo-form-checkbox" class="magic-checkbox" type="checkbox" checked="checked"
+                               name="is_remember">
+                        <label for="demo-form-checkbox">记住账号密码</label>
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block" type="button">登录</button>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
 
 
-    <!--=================== js ====================-->
-    <script src="/static/bootstrap/js/pace.min.js"></script>
-    <script src="/static/bootstrap/js/jquery-2.2.4.min.js"></script>
-    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/static/bootstrap/js/nifty.min.js"></script>
-    <script>
-        $('.btn').click(function () {
-            $.ajax({
-                url:"/admin/login.html",
-                data:$("#fm").serialize(),
-                type:'POST',
-                success:function (rel) {
-                    var result = JSON.parse(rel)
-                    console.log(result.status)
-                  if (result.status){
-                    console.log("成功");
-                  }else {
-                      console.log("失败");
-                  }
-
-                },
-                error:function (error) {
-                    console.log(error);
-                },
-            })
+<!--=================== js ====================-->
+<script src="/static/bootstrap/js/pace.min.js"></script>
+<script src="/static/bootstrap/js/jquery-2.2.4.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/bootstrap/js/nifty.min.js"></script>
+<script>
+    $('.btn').click(function () {
+        $.ajax({
+            url: "/admin/login.html",
+            data: $("#fm").serialize(),
+            type: 'POST',
+            success: function (rel) {
+                var result = JSON.parse(rel)
+                console.log(result.status)
+                if (result.status) {
+                    location.href = '/admin/admin.html';
+                } else {
+                    console.log("失败");
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            },
         })
+    })
 
-    </script>
+</script>
 </body>
 </html>

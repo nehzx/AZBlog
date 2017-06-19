@@ -2,17 +2,19 @@ from django.shortcuts import render, redirect, HttpResponse
 from django import forms
 from Admin import models
 import json
-from Admin.forms.account import LoginForm
+from Admin.auth.auth import check_login
 
 
 # Create your views here.
 
+@check_login
 def admin(request):
     return render(request, "admin/admin.html")
 
 
-class User(forms.Form):
-    pass
+def logout(request):
+    request.session.clear()
+    return redirect('/admin/login.html')
 
 
 def login(request):
