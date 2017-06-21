@@ -14,6 +14,9 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return self.username
 
+    def __str__(self):
+        return "用户表"
+
 
 class UserInfo(models.Model):
     """
@@ -32,4 +35,11 @@ class UserInfo(models.Model):
     def __unicode__(self):
         return self.name
 
+    def __str__(self):
+        return "用户信息表"
 
+
+class Blog(models.Model):
+    """
+    博客信息
+    """
