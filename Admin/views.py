@@ -7,6 +7,7 @@ from Admin.auth.auth import check_login
 
 # Create your views here.
 
+
 @check_login
 def admin(request):
     return render(request, "admin/admin.html")
