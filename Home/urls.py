@@ -18,5 +18,7 @@ from Home import views
 urlpatterns = [
     url(r'^', views.index),
     url(r'^detaile/', views.detaile),
+    url(r'^essay_list/', views.essay_list),
+    url(r'^about/', views.about),
 
 ]

@@ -8,4 +8,12 @@ def index(request):
 
 
 def detaile(request):
-    return render(request, "home/index.html");
+    return render(request, "home/index.html")
+
+
+def essay_list(request):
+    return render(request, "home/essay_list.html")
+
+
+def about(request):
+    return render(request, "home/about.html")
